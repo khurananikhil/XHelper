@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!--  This is the file that defines the actual layout and type of the commands.
+        It is divided in different sections (e.g. command definition, command
+        placement, ...), with each defining a specific set of properties.
+        See the comment before each section for more details about how to
+        use it. -->
+
+  <!--  The VSCT compiler (the tool that translates this file into the binary
+        format that VisualStudio will consume) has the ability to run a preprocessor
+        on the vsct file; this preprocessor is (usually) the C++ preprocessor, so
+        it is possible to define includes and macros with the same syntax used
+        in C++ files. Using this ability of the compiler here, we include some files
+        defining some of the constants that we will use inside the file. -->
+
+  <!--This is the file that defines the IDs for all the commands exposed by VisualStudio. -->
+  <Extern href="stdidcmd.h" />
+
+  <!--This header contains the command ids for the menus provided by the shell. -->
+  <Extern href="vsshlids.h" />
+
+  <!--The Commands section is where commands, menus, and menu groups are defined.
+      This section uses a Guid to identify the package that provides the command defined inside it. -->
+  <Commands package="guidXMLXPathPackage">
+    <!-- Inside this section we have different sub-sections: one for the menus, another
+    for the menu groups, one for the buttons (the actual commands), one for the combos
+    and the last one for the bitmaps used. Each element is identified by a command id that
+    is a unique pair of guid and numeric identifier; the guid part of the identifier is usually
+    called "command set" and is used to group different command inside a logically related
+    group; your package should define its own command set in order to avoid collisions
+    with command ids defined by other packages. -->
+
+    <!--Buttons section. -->
+    <!--This section defines the elements the user can interact with, like a menu command or a button
+        or combo box in a toolbar. -->
+    <Buttons>
+      <!--To define a menu group you have to specify its ID, the parent menu and its display priority.
+          The command is visible and enabled by default. If you need to change the visibility, status, etc, you can use
+          the CommandFlag node.
+          You can add more than one CommandFlag node e.g.:
+              <CommandFlag>DefaultInvisible</CommandFlag>
+              <CommandFlag>DynamicVisibility</CommandFlag>
+          If you do not want an image next to your command, remove the Icon node /> -->
+      <Button guid="guidXMLXPathPackageCmdSet" id="XMLXPathCommandId" priority="0x0100" type="Button">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWS1" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings>
+          <ButtonText>XMLXPath</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidXMLXPathPackageCmdSet" id="cmdidXDebuggerCommand" priority="0x0100" type="Button">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_WNDO_OTRWNDWS1" />
+        <Icon guid="guidImages1" id="bmpPic1" />
+        <Strings>
+          <ButtonText>XDebugger</ButtonText>
+        </Strings>
+      </Button>
+      <!--XPath Export Toolbar button / Start-->
+      <Button guid="guidXMLXPathPackageCmdSet1" id="cmdidExport" priority="0x0100" type="Button">
+        <Parent guid="guidXMLXPathPackageCmdSet1" id="TWToolbarGroup" />
+        <Icon guid="guidImages2" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Export</ButtonText>
+        </Strings>
+      </Button>
+      <!--XPath Export Toolbar button / Ends-->
+      <Button guid="guidXMLXPathPackageCmdSet1" id="cmdidXPathEmailCommand" priority="0x0100" type="Button">
+        <Parent guid="guidXMLXPathPackageCmdSet1" id="TWToolbarGroup" />
+        <Icon guid="guidImages3" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Send Email</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidXMLXPathPackageCmdSet1" id="cmdidXPathRefresh" priority="0x0100" type="Button">
+        <Parent guid="guidXMLXPathPackageCmdSet1" id="TWToolbarGroup" />
+        <Icon guid="guidImages4" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Refresh XPath</ButtonText>
+        </Strings>
+      </Button>
+      <Button guid="guidXMLXPathPackageCmdSet1" id="cmdidXPathHelpCommand" priority="0x0100" type="Button">
+        <Parent guid="guidXMLXPathPackageCmdSet1" id="TWToolbarGroup" />
+        <Icon guid="guidImages5" id="bmpPic1" />
+        <Strings>
+          <ButtonText>Help</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+
+    <!--The bitmaps section is used to define the bitmaps that are used for the commands.-->
+    <Bitmaps>
+      <!--  The bitmap id is defined in a way that is a little bit different from the others:
+            the declaration starts with a guid for the bitmap strip, then there is the resource id of the
+            bitmap strip containing the bitmaps and then there are the numeric ids of the elements used
+            inside a button definition. An important aspect of this declaration is that the element id
+            must be the actual index (1-based) of the bitmap inside the bitmap strip. -->
+      <Bitmap guid="guidImages" href="Resources\XPath_16x.png" />
+      <!--usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />-->
+      <Bitmap guid="guidImages1" href="Resources\DebugXSLT_16x.png" />
+      <!--usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />-->
+      <Bitmap guid="guidImages2" href="Resources\ExportToExcel_16x.png" />
+      <!--usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />-->
+      <Bitmap guid="guidImages3" href="Resources\EmailAddressViewer_16x.png" />
+      <!--usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />-->
+      <Bitmap guid="guidImages4" href="Resources\Refresh_16x.png" />
+      <!--usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />-->
+      <Bitmap guid="guidImages5" href="Resources\Question_16x.png" />
+      <!--usedList="bmpPic1, bmpPic2, bmpPicSearch, bmpPicX, bmpPicArrows, bmpPicStrikethrough" />-->
+    </Bitmaps>
+    <Groups>
+      <!--<Group guid="guidXMLXPathPackageCmdSet1" id="MyMenuGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
+      </Group>-->
+      <Group guid="guidXMLXPathPackageCmdSet1" id="TWToolbarGroup" priority="0x0600">
+        <Parent guid="guidXMLXPathPackageCmdSet1" id="TWToolbar" />
+      </Group>
+      <!--<Group guid="guidXMLXPathPackageCmdSet2" id="MyMenuGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
+      </Group>-->
+      <!--<Group guid="guidXMLXPathPackageCmdSet2" id="MyMenuGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
+      </Group>-->
+      <!--<Group guid="guidXMLXPathPackageCmdSet2" id="MyMenuGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_TOOLS" />
+      </Group>-->
+    </Groups>
+
+    <!--ToolBar start-->
+    <Menus>
+
+      <Menu guid="guidXMLXPathPackageCmdSet1" id="TWToolbar" type="ToolWindowToolbar">
+        <CommandFlag>DefaultDocked</CommandFlag>
+        <Strings>
+          <ButtonText>Test Toolbar</ButtonText>
+          <CommandName>Test Toolbar</CommandName>
+        </Strings>
+      </Menu>
+    </Menus>
+    <!--ToolBar Ends-->
+
+  </Commands>
+
+  <KeyBindings>
+    <KeyBinding guid="guidXMLXPathPackageCmdSet" id="XMLXPathCommandId" mod1="Alt" key1="X" mod2="Alt" editor="guidVSStd97" />
+    <KeyBinding guid="guidXMLXPathPackageCmdSet" id="cmdidXDebuggerCommand" mod1="Alt" key1="D" mod2="Alt" editor="guidVSStd97" />
+  </KeyBindings>
+
+  <Symbols>
+    <!-- This is the package guid. -->
+    <GuidSymbol name="guidXMLXPathPackage" value="{8fe990ae-aeb5-4137-af96-9d26a7a25ade}" />
+
+    <!-- This is the guid used to group the menu commands together -->
+    <GuidSymbol name="guidXMLXPathPackageCmdSet" value="{d664261c-af9f-44ee-a150-d62db6e3acd4}">
+      <IDSymbol name="XMLXPathCommandId" value="0x0100" />
+      <IDSymbol name="cmdidXDebuggerCommand" value="257" />
+    </GuidSymbol>
+
+    <GuidSymbol name="guidImages" value="{6a64dc66-9114-4014-a8ba-121444f67bd8}">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+
+    <GuidSymbol value="{ff44d593-069a-44d9-8862-b9adf75da745}" name="guidImages1">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+
+    <GuidSymbol value="{bdb406c2-0654-4bbb-852a-87dcb21cea13}" name="guidXMLXPathPackageCmdSet1">
+      <IDSymbol value="256" name="cmdidExport" />
+      <IDSymbol value="258" name="cmdidXPathEmailCommand" />
+      <IDSymbol value="259" name="cmdidXPathRefresh" />
+      <IDSymbol value="260" name="cmdidXPathHelpCommand" />
+      <!--Toolbar/ Start-->
+      <IDSymbol name="TWToolbar" value="0x1000" />
+      <IDSymbol name="TWToolbarGroup" value="0x1050" />
+      <!--Toolbar/ Ends-->
+    </GuidSymbol>
+
+    <GuidSymbol value="{67af8aaa-1cd7-4cc3-82ef-2311ee3aa63f}" name="guidImages2">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+
+    <!--<GuidSymbol value="{a915754b-57f7-43fe-84cc-1ed919f4a6b8}" name="guidXMLXPathPackageCmdSet2">
+      <IDSymbol value="4128" name="MyMenuGroup" />
+      <IDSymbol value="256" name="cmdidXPathEmailCommand" />
+    </GuidSymbol>-->
+
+    <GuidSymbol value="{9ecd5378-a0cc-4480-8444-1de13dc51b32}" name="guidImages3">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+
+    <!--<GuidSymbol value="{ede16654-7207-40c6-811b-9eb428c44bac}" name="guidXMLXPathPackageCmdSet2">
+      <IDSymbol value="4128" name="MyMenuGroup" />
+      <IDSymbol value="256" name="cmdidXPathRefresh" />
+    </GuidSymbol>-->
+
+    <GuidSymbol value="{821b619b-160f-418e-8171-caef41282fc6}" name="guidImages4">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+
+    <!--<GuidSymbol value="{01395962-e36a-4e03-a40b-d718413b602d}" name="guidXMLXPathPackageCmdSet2">
+      <IDSymbol value="4128" name="MyMenuGroup" />
+      <IDSymbol value="256" name="cmdidXPathHelpCommand" />
+    </GuidSymbol>-->
+
+    <GuidSymbol value="{88556440-3283-4ab5-8547-a477700938b8}" name="guidImages5">
+      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="bmpPic2" value="2" />
+      <IDSymbol name="bmpPicSearch" value="3" />
+      <IDSymbol name="bmpPicX" value="4" />
+      <IDSymbol name="bmpPicArrows" value="5" />
+      <IDSymbol name="bmpPicStrikethrough" value="6" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

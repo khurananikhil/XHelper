@@ -1,0 +1,4 @@
+C:\Users\Nikhil\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\ascensive.source\XMLHelper\1.0\\extension.vsixmanifest
+C:\Users\Nikhil\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\ascensive.source\XMLHelper\1.0\\XMLHelper.dll
+C:\Users\Nikhil\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\ascensive.source\XMLHelper\1.0\\XMLHelper.pdb
+C:\Users\Nikhil\AppData\Local\Microsoft\VisualStudio\14.0Exp\Extensions\ascensive.source\XMLHelper\1.0\\XMLHelper.pkgdef
